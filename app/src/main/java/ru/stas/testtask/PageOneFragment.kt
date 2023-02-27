@@ -15,12 +15,16 @@ class PageOneFragment : Fragment() {
         "Cannot access binding because it is null. Is the view visible?"
     }
 
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         _binding = FragmentPageOneBinding.inflate(inflater,container,false)
         return binding.root
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        _binding = null
     }
 }
