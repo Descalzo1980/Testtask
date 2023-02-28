@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.fragment.findNavController
 import ru.stas.testtask.databinding.FragmentProfileBinding
 
 
@@ -20,11 +21,18 @@ class ProfileFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         _binding = FragmentProfileBinding.inflate(inflater,container,false)
+        logOut()
         return binding.root
     }
 
     override fun onDestroy() {
         super.onDestroy()
         _binding = null
+    }
+
+    private fun logOut(){
+        binding.imgLogOut.setOnClickListener {
+            findNavController().navigate(R.id.singInFragment)
+        }
     }
 }

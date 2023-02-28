@@ -27,5 +27,14 @@
         android:id="@+id/profileFragment"
         android:name="ru.stas.testtask.ProfileFragment"
         android:label="fragment_profile"
-        tools:layout="@layout/fragment_profile" />
+        tools:layout="@layout/fragment_profile" >
+        <action
+            android:id="@+id/action_profileFragment_to_pageOneFragment"
+            app:destination="@id/pageOneFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/pageOneFragment"
+        android:name="ru.stas.testtask.PageOneFragment"
+        android:label="fragment_page_one"
+        tools:layout="@layout/fragment_page_one" />
 </navigation>

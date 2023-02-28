@@ -3,4 +3,23 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="sing_in">Sing in</string>
     <string name="login">Login</string>
+    <string name="profile">Profile</string>
+    <string name="change_photo">Change photo</string>
+    <string name="satria_adhi_pradana">Satria Adhi Pradana</string>
+    <string name="upload_item">Upload item</string>
+    <string name="trade_store">Trade store</string>
+    <string name="payment_method">Payment method</string>
+    <string name="balance">Balance</string>
+    <string name="_1593">$ 1593</string>
+    <string name="trade_history">Trade history</string>
+    <string name="restore_purchase">Restore Purchase</string>
+    <string name="help">Help</string>
+    <string name="log_out">Log out</string>
+    <string name="home">home</string>
+    <string name="heart">heart</string>
+    <string name="cart">cart</string>
+    <string name="message">message</string>
+    <string name="welcome_back">Welcome back</string>
+    <string name="first_name">First name</string>
+    <string name="password">password</string>
 </resources>

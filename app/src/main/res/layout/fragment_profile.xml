@@ -20,7 +20,7 @@
             android:layout_gravity="center"
             android:layout_marginTop="16dp"
             android:gravity="center"
-            android:text="Profile"
+            android:text="@string/profile"
             android:textColor="@color/black"
             android:textSize="15sp"
             app:layout_constraintEnd_toEndOf="parent"
@@ -38,7 +38,8 @@
             android:src="@drawable/photo_profile"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_profile" />
+            app:layout_constraintTop_toBottomOf="@+id/tv_profile"
+            tools:ignore="ContentDescription" />
 
         <TextView
             android:id="@+id/tv_change_photo"
@@ -46,7 +47,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="4dp"
-            android:text="Change photo"
+            android:text="@string/change_photo"
             android:textColor="@color/black"
             android:textSize="15sp"
             app:layout_constraintEnd_toEndOf="parent"
@@ -59,7 +60,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="20dp"
-            android:text="Satria Adhi Pradana"
+            android:text="@string/satria_adhi_pradana"
             android:textColor="#3F3F3F"
             android:textSize="15sp"
             app:layout_constraintEnd_toEndOf="parent"
@@ -73,10 +74,10 @@
             android:layout_height="48dp"
             android:layout_marginTop="20dp"
             android:background="@drawable/shape_form_and_button"
-            android:drawableLeft="@drawable/upload_shape"
+            android:drawableStart="@drawable/upload_shape"
             android:paddingLeft="50dp"
             android:paddingRight="50dp"
-            android:text="Upload item"
+            android:text="@string/upload_item"
             android:textAllCaps="false"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.504"
@@ -93,7 +94,8 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.157"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/btn_upload_item" />
+            app:layout_constraintTop_toBottomOf="@+id/btn_upload_item"
+            tools:ignore="ContentDescription" />
 
         <ImageView
             android:id="@+id/imageView5"
@@ -104,7 +106,8 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.155"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/iv_trade_store" />
+            app:layout_constraintTop_toBottomOf="@+id/iv_trade_store"
+            tools:ignore="ContentDescription" />
 
         <ImageView
             android:id="@+id/imageView6"
@@ -115,7 +118,8 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.155"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageView5" />
+            app:layout_constraintTop_toBottomOf="@+id/imageView5"
+            tools:ignore="ContentDescription" />
 
 
         <ImageView
@@ -127,14 +131,15 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.155"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/btn_upload_item" />
+            app:layout_constraintTop_toBottomOf="@+id/btn_upload_item"
+            tools:ignore="ContentDescription" />
 
         <TextView
             android:id="@+id/textView10"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="56dp"
-            android:text="Trade store"
+            android:text="@string/trade_store"
             android:textSize="14sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.294"
@@ -146,7 +151,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="104dp"
-            android:text="Payment method"
+            android:text="@string/payment_method"
             android:textSize="14sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.328"
@@ -158,7 +163,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="140dp"
-            android:text="Balance"
+            android:text="@string/balance"
             android:textSize="14sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.277"
@@ -171,7 +176,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="140dp"
-            android:text="$ 1593"
+            android:text="@string/_1593"
             android:textSize="14sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.836"
@@ -183,7 +188,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="180dp"
-            android:text="Trade history"
+            android:text="@string/trade_history"
             android:textSize="14sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.303"
@@ -199,7 +204,8 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.85"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/btn_upload_item" />
+            app:layout_constraintTop_toBottomOf="@+id/btn_upload_item"
+            tools:ignore="ContentDescription" />
 
         <ImageView
             android:id="@+id/img_arrow_trade"
@@ -210,18 +216,20 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.85"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/btn_upload_item" />
+            app:layout_constraintTop_toBottomOf="@+id/btn_upload_item"
+            tools:ignore="ContentDescription" />
 
         <ImageView
             android:id="@+id/img_arrow_trade_history"
-            android:layout_width="6dp"
-            android:layout_height="11dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginTop="184dp"
             android:src="@drawable/arrow_right"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.85"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/btn_upload_item" />
+            app:layout_constraintTop_toBottomOf="@+id/btn_upload_item"
+            tools:ignore="ContentDescription" />
 
         <ImageView
             android:id="@+id/img_arrow_restore"
@@ -232,7 +240,8 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.85"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/btn_upload_item" />
+            app:layout_constraintTop_toBottomOf="@+id/btn_upload_item"
+            tools:ignore="ContentDescription" />
 
         <ImageView
             android:id="@+id/img_restore"
@@ -243,14 +252,15 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.157"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/btn_upload_item" />
+            app:layout_constraintTop_toBottomOf="@+id/btn_upload_item"
+            tools:ignore="ContentDescription" />
 
         <TextView
             android:id="@+id/tv_restore"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="224dp"
-            android:text="Restore Purchase"
+            android:text="@string/restore_purchase"
             android:textSize="14sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.332"
@@ -266,7 +276,8 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.154"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/btn_upload_item" />
+            app:layout_constraintTop_toBottomOf="@+id/btn_upload_item"
+            tools:ignore="ContentDescription" />
 
         <ImageView
             android:id="@+id/img_log_out"
@@ -275,16 +286,17 @@
             android:layout_marginTop="304dp"
             android:src="@drawable/log_out"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.157"
+            app:layout_constraintHorizontal_bias="0.149"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/btn_upload_item" />
+            app:layout_constraintTop_toBottomOf="@+id/btn_upload_item"
+            tools:ignore="ContentDescription" />
 
         <TextView
             android:id="@+id/tv_help"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="264dp"
-            android:text="Help"
+            android:text="@string/help"
             android:textSize="14sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.261"
@@ -296,7 +308,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="304dp"
-            android:text="Log out"
+            android:text="@string/log_out"
             android:textSize="14sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.274"
