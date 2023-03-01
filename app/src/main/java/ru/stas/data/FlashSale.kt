@@ -1,4 +1,4 @@
-package ru.stas.testtask
+package ru.stas.data
 
 data class FlashSale(
     val category: String,
