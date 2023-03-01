@@ -5,8 +5,10 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import ru.stas.testtask.databinding.FragmentSingInBinding
+import ru.stas.viewmodel.UserViewModel
 
 class SingInFragment : Fragment() {
 
@@ -15,11 +17,14 @@ class SingInFragment : Fragment() {
         "Cannot access binding because it is null. Is the view visible?"
     }
 
+    private lateinit var mUserViewModel: UserViewModel
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         _binding = FragmentSingInBinding.inflate(inflater,container,false)
+        mUserViewModel = ViewModelProvider(this)[UserViewModel::class.java]
 
         binding.tvLogIn.setOnClickListener {
             findNavController().navigate(R.id.loginFragment)

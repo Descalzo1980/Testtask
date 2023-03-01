@@ -1,4 +1,4 @@
-package ru.stas.data
+package ru.stas.model
 
 data class FlashSale(
     val category: String,
