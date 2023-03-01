@@ -41,13 +41,19 @@ class SingInFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         binding.btnSingIn.setOnClickListener {
             insertDataToDatabase()
+            addName()
             cleanText()
         }
-
     }
     override fun onDestroy() {
         super.onDestroy()
         _binding = null
+    }
+
+    private fun addName(){
+        val firstName = binding.etFirstName.text.toString()
+        val action = SingInFragmentDirections.actionSingInFragmentToProfileFragment(firstName)
+        findNavController().navigate(action)
     }
 
     private fun insertDataToDatabase() {
@@ -94,8 +100,6 @@ class SingInFragment : Fragment() {
         userLiveData.observe(viewLifecycleOwner, Observer { user ->
             if (user != null) {
                 return@Observer
-            } else {
-                Toast.makeText(requireContext(), "Let's sing in", Toast.LENGTH_LONG).show()
             }
         })
     }
