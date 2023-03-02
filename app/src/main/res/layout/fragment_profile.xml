@@ -1,24 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
+    android:layout_width="wrap_content"
     android:layout_height="match_parent"
     tools:context=".ProfileFragment">
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_gravity="center"
-        android:orientation="vertical">
-
 
         <TextView
             android:id="@+id/tv_profile"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="63dp"
             android:gravity="center_horizontal"
             android:text="@string/profile"
             android:textColor="@color/black"
@@ -33,7 +27,7 @@
             android:layout_width="61dp"
             android:layout_height="61dp"
             android:layout_gravity="center_horizontal"
-            android:layout_marginTop="28dp"
+            android:layout_marginTop="19dp"
             android:scaleType="centerCrop"
             android:src="@drawable/photo_profile"
             app:layout_constraintEnd_toEndOf="parent"
@@ -47,10 +41,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:layout_marginTop="4dp"
+            android:layout_marginTop="6dp"
             android:text="@string/change_photo"
             android:textColor="@color/black"
-            android:textSize="15sp"
+            android:textSize="8sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
@@ -61,7 +55,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="17dp"
             android:text="@string/satria_adhi_pradana"
             android:textColor="#3F3F3F"
             android:textSize="15sp"
@@ -70,29 +64,29 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tv_change_photo" />
 
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/btn_upload_item"
             android:layout_width="290dp"
             android:layout_height="48dp"
-            android:layout_marginTop="20dp"
-            android:background="@drawable/shape_form_and_button"
-            android:drawableStart="@drawable/upload_shape"
-            android:paddingLeft="50dp"
-            android:paddingRight="50dp"
+            android:layout_marginTop="36dp"
+            android:background="@drawable/shape_form_upload_btn"
             android:text="@string/upload_item"
             android:textAllCaps="false"
+            app:iconGravity="textStart"
+            app:icon="@drawable/upload"
+            app:iconSize="15dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.504"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tv_name_profile" />
 
+
         <ImageView
             android:id="@+id/iv_trade_store"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="56dp"
-
-            android:src="@drawable/credit_card"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="14dp"
+            android:background="@drawable/shape_profile"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.157"
             app:layout_constraintStart_toStartOf="parent"
@@ -100,120 +94,231 @@
             tools:ignore="ContentDescription" />
 
         <ImageView
-            android:id="@+id/imageView5"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
+            android:layout_width="22dp"
+            android:layout_height="16dp"
             android:src="@drawable/credit_card"
+            app:layout_constraintStart_toStartOf="@+id/iv_trade_store"
+            app:layout_constraintEnd_toEndOf="@+id/iv_trade_store"
+            app:layout_constraintBottom_toBottomOf="@+id/iv_trade_store"
+            app:layout_constraintTop_toTopOf="@+id/iv_trade_store"
+            tools:layout_editor_absoluteX="62dp"
+            tools:layout_editor_absoluteY="329dp" />
+
+        <ImageView
+            android:id="@+id/iv_payment_method"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="25dp"
+            android:background="@drawable/shape_profile"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.155"
+            app:layout_constraintHorizontal_bias="0.157"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/iv_trade_store"
             tools:ignore="ContentDescription" />
 
         <ImageView
-            android:id="@+id/imageView6"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
+            android:layout_width="22dp"
+            android:layout_height="16dp"
             android:src="@drawable/credit_card"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.155"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageView5"
-            tools:ignore="ContentDescription" />
-
+            app:layout_constraintStart_toStartOf="@+id/iv_payment_method"
+            app:layout_constraintEnd_toEndOf="@+id/iv_payment_method"
+            app:layout_constraintBottom_toBottomOf="@+id/iv_payment_method"
+            app:layout_constraintTop_toTopOf="@+id/iv_payment_method"
+            tools:layout_editor_absoluteX="62dp"
+            tools:layout_editor_absoluteY="329dp" />
 
         <ImageView
-            android:id="@+id/img_trade_history"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="180dp"
-            android:src="@drawable/credit_card"
+            android:id="@+id/iv_balance"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="25dp"
+            android:background="@drawable/shape_profile"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.155"
+            app:layout_constraintHorizontal_bias="0.157"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/btn_upload_item"
+            app:layout_constraintTop_toBottomOf="@+id/iv_payment_method"
             tools:ignore="ContentDescription" />
 
+        <ImageView
+            android:layout_width="22dp"
+            android:layout_height="16dp"
+            android:src="@drawable/credit_card"
+            app:layout_constraintStart_toStartOf="@+id/iv_balance"
+            app:layout_constraintEnd_toEndOf="@+id/iv_balance"
+            app:layout_constraintBottom_toBottomOf="@+id/iv_balance"
+            app:layout_constraintTop_toTopOf="@+id/iv_balance"
+            tools:layout_editor_absoluteX="62dp"
+            tools:layout_editor_absoluteY="329dp" />
+
+        <ImageView
+            android:id="@+id/iv_trade_history"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="25dp"
+            android:background="@drawable/shape_profile"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.157"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/iv_balance"
+            tools:ignore="ContentDescription" />
+
+        <ImageView
+            android:layout_width="22dp"
+            android:layout_height="16dp"
+            android:src="@drawable/credit_card"
+            app:layout_constraintStart_toStartOf="@+id/iv_trade_history"
+            app:layout_constraintEnd_toEndOf="@+id/iv_trade_history"
+            app:layout_constraintBottom_toBottomOf="@+id/iv_trade_history"
+            app:layout_constraintTop_toTopOf="@+id/iv_trade_history"
+            tools:layout_editor_absoluteX="62dp"
+            tools:layout_editor_absoluteY="329dp" />
+
+        <ImageView
+            android:id="@+id/iv_restore_history"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="25dp"
+            android:background="@drawable/shape_profile"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.157"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/iv_trade_history"
+            tools:ignore="ContentDescription" />
+
+        <ImageView
+            android:layout_width="22dp"
+            android:layout_height="16dp"
+            android:src="@drawable/restore"
+            app:layout_constraintStart_toStartOf="@+id/iv_restore_history"
+            app:layout_constraintEnd_toEndOf="@+id/iv_restore_history"
+            app:layout_constraintBottom_toBottomOf="@+id/iv_restore_history"
+            app:layout_constraintTop_toTopOf="@+id/iv_restore_history"
+            tools:layout_editor_absoluteX="62dp"
+            tools:layout_editor_absoluteY="329dp" />
+
+        <ImageView
+            android:id="@+id/iv_help"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="25dp"
+            android:background="@drawable/shape_profile"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.157"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/iv_restore_history"
+            tools:ignore="ContentDescription" />
+
+        <ImageView
+            android:layout_width="22dp"
+            android:layout_height="16dp"
+            android:src="@drawable/help"
+            app:layout_constraintStart_toStartOf="@+id/iv_help"
+            app:layout_constraintEnd_toEndOf="@+id/iv_help"
+            app:layout_constraintBottom_toBottomOf="@+id/iv_help"
+            app:layout_constraintTop_toTopOf="@+id/iv_help"
+            tools:layout_editor_absoluteX="62dp"
+            tools:layout_editor_absoluteY="329dp" />
+
+        <ImageView
+            android:id="@+id/iv_log_out"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="25dp"
+            android:background="@drawable/shape_profile"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.157"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/iv_help"
+            tools:ignore="ContentDescription" />
+
+        <ImageView
+            android:layout_width="22dp"
+            android:layout_height="16dp"
+            android:src="@drawable/log_out"
+            app:layout_constraintStart_toStartOf="@+id/iv_log_out"
+            app:layout_constraintEnd_toEndOf="@+id/iv_log_out"
+            app:layout_constraintBottom_toBottomOf="@+id/iv_log_out"
+            app:layout_constraintTop_toTopOf="@+id/iv_log_out"
+            tools:layout_editor_absoluteX="62dp"
+            tools:layout_editor_absoluteY="329dp" />
+
         <TextView
-            android:id="@+id/textView10"
+            android:id="@+id/tv_trade_store"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="56dp"
+            android:layout_marginTop="27dp"
             android:text="@string/trade_store"
             android:textSize="14sp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.294"
+            app:layout_constraintHorizontal_bias="0.323"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/btn_upload_item" />
 
         <TextView
-            android:id="@+id/textView12"
+            android:id="@+id/tv_payment"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="104dp"
+            android:layout_marginTop="46dp"
             android:text="@string/payment_method"
             android:textSize="14sp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.328"
+            app:layout_constraintHorizontal_bias="0.361"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/btn_upload_item" />
+            app:layout_constraintTop_toBottomOf="@+id/tv_trade_store" />
 
         <TextView
             android:id="@+id/tv_balance"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="140dp"
+            android:layout_marginTop="46dp"
             android:text="@string/balance"
             android:textSize="14sp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.277"
+            app:layout_constraintHorizontal_bias="0.304"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/btn_upload_item" />
-
+            app:layout_constraintTop_toBottomOf="@+id/tv_payment" />
 
         <TextView
             android:id="@+id/tv_balance_result"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="140dp"
+            android:layout_marginTop="51dp"
             android:text="@string/_1593"
             android:textSize="14sp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.836"
+            app:layout_constraintHorizontal_bias="0.85"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/btn_upload_item" />
+            app:layout_constraintTop_toBottomOf="@+id/img_arrow_payment" />
 
         <TextView
             android:id="@+id/tv_trade_history"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="180dp"
+            android:layout_marginTop="46dp"
             android:text="@string/trade_history"
             android:textSize="14sp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.303"
+            app:layout_constraintHorizontal_bias="0.333"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/btn_upload_item" />
+            app:layout_constraintTop_toBottomOf="@+id/tv_balance" />
 
         <ImageView
             android:id="@+id/img_arrow_payment"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="104dp"
+            android:layout_width="5.5dp"
+            android:layout_height="10dp"
+            android:layout_marginTop="54dp"
             android:src="@drawable/arrow_right"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.85"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/btn_upload_item"
+            app:layout_constraintTop_toBottomOf="@+id/img_arrow_trade"
             tools:ignore="ContentDescription" />
 
         <ImageView
             android:id="@+id/img_arrow_trade"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="64dp"
+            android:layout_width="5.5dp"
+            android:layout_height="10dp"
+            android:layout_marginTop="31dp"
             android:src="@drawable/arrow_right"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.85"
@@ -221,106 +326,71 @@
             app:layout_constraintTop_toBottomOf="@+id/btn_upload_item"
             tools:ignore="ContentDescription" />
 
+
         <ImageView
             android:id="@+id/img_arrow_trade_history"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="184dp"
+            android:layout_width="5.5dp"
+            android:layout_height="10dp"
+            android:layout_marginTop="49dp"
             android:src="@drawable/arrow_right"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.85"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/btn_upload_item"
+            app:layout_constraintTop_toBottomOf="@+id/tv_balance_result"
             tools:ignore="ContentDescription" />
 
         <ImageView
             android:id="@+id/img_arrow_restore"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="228dp"
+            android:layout_width="5.5dp"
+            android:layout_height="10dp"
+            android:layout_marginTop="52dp"
             android:src="@drawable/arrow_right"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.85"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/btn_upload_item"
-            tools:ignore="ContentDescription" />
-
-        <ImageView
-            android:id="@+id/img_restore"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="224dp"
-            android:src="@drawable/restore"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.157"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/btn_upload_item"
+            app:layout_constraintTop_toBottomOf="@+id/img_arrow_trade_history"
             tools:ignore="ContentDescription" />
 
         <TextView
             android:id="@+id/tv_restore"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="224dp"
+            android:layout_marginTop="46dp"
             android:text="@string/restore_purchase"
             android:textSize="14sp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.332"
+            app:layout_constraintHorizontal_bias="0.365"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/btn_upload_item" />
-
-        <ImageView
-            android:id="@+id/img_help"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="264dp"
-            android:src="@drawable/help"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.154"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/btn_upload_item"
-            tools:ignore="ContentDescription" />
-
-        <ImageView
-            android:id="@+id/img_log_out"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="304dp"
-            android:src="@drawable/log_out"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.149"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/btn_upload_item"
-            tools:ignore="ContentDescription" />
+            app:layout_constraintTop_toBottomOf="@+id/tv_trade_history" />
 
         <TextView
             android:id="@+id/tv_help"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="264dp"
+            android:layout_marginTop="46dp"
             android:text="@string/help"
             android:textSize="14sp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.261"
+            app:layout_constraintHorizontal_bias="0.287"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/btn_upload_item" />
+            app:layout_constraintTop_toBottomOf="@+id/tv_restore" />
 
         <TextView
             android:id="@+id/tv_log_out"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="304dp"
+            android:layout_marginTop="46dp"
             android:text="@string/log_out"
             android:textSize="14sp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.274"
+            app:layout_constraintHorizontal_bias="0.302"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/btn_upload_item" />
+            app:layout_constraintTop_toBottomOf="@+id/tv_help" />
 
         <com.google.android.material.bottomnavigation.BottomNavigationView
             android:id="@+id/navigation"
-            android:layout_width="411dp"
-            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_height="63dp"
             android:layout_gravity="center_horizontal|bottom"
             app:labelVisibilityMode="unlabeled"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -328,7 +398,4 @@
             app:layout_constraintStart_toStartOf="parent"
             app:menu="@menu/nav_menu" />
 
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-</FrameLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

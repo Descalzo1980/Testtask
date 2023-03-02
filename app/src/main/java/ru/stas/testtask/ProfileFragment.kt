@@ -47,7 +47,7 @@ class ProfileFragment : Fragment() {
 //        binding.tvNameProfile.text = spannable
 //    }
     private fun logOut(){
-        binding.imgLogOut.setOnClickListener {
+        binding.ivLogOut.setOnClickListener {
             findNavController().navigate(R.id.singInFragment)
         }
     }
