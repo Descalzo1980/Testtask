@@ -49,7 +49,7 @@ class LoginFragment : Fragment() {
     private fun authenticationUser() {
         val firstName = binding.etFirstName.text.toString()
         userViewModel.authenticationName(firstName = firstName).observe(viewLifecycleOwner) { user ->
-            if (user.firstName.isNotEmpty()) {
+            if (user != null && user.firstName.isNotEmpty() && user.firstName.isNotBlank() ) {
                     findNavController().navigate(R.id.profileFragment)
             }else{
                 Snackbar.make(requireView(), "Пользователь не найден, пройдите регистрацию", Snackbar.LENGTH_LONG).show()
@@ -57,10 +57,13 @@ class LoginFragment : Fragment() {
         }
     }
 
-        private fun addName(){
+    private fun addName(): String{
         val firstName = binding.etFirstName.text.toString()
         val action = LoginFragmentDirections.actionLoginFragmentToProfileFragment(firstName)
-        findNavController().navigate(action)
+            if (firstName != null && firstName.isNotEmpty() && firstName.isNotBlank()){
+                findNavController().navigate(action)
+            }
+        return ""
     }
     private fun showPassword() {
         val passwordEditText = binding.etPassword
