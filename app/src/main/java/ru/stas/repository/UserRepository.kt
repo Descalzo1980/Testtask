@@ -14,4 +14,8 @@ class UserRepository(private val userDao: UserDao) {
     fun getUserByEmailAndFirstName(email: String, firstName: String): LiveData<User> {
         return userDao.getUserByEmailAndFirstName(email, firstName)
     }
+
+    fun authenticationName(firstName: String): LiveData<User> {
+        return userDao.authenticationName(firstName)
+    }
 }

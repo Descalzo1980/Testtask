@@ -18,4 +18,7 @@ interface UserDao {
 
     @Query("SELECT * FROM user_table WHERE email = :email AND firstName = :firstName")
     fun getUserByEmailAndFirstName(email: String, firstName: String): LiveData<User>
+
+    @Query("SELECT * FROM user_table WHERE firstName = :firstName")
+    fun authenticationName(firstName: String): LiveData<User>
 }

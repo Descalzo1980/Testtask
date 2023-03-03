@@ -29,4 +29,8 @@ class UserViewModel(application: Application) : AndroidViewModel(application) {
     fun getUserByEmailAndFirstName(email: String, firstName: String): LiveData<User> {
         return repository.getUserByEmailAndFirstName(email, firstName)
     }
+
+    fun authenticationName(firstName: String): LiveData<User> {
+        return repository.authenticationName(firstName)
+    }
 }

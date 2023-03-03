@@ -5,9 +5,13 @@ import android.text.InputType
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
+import com.google.android.material.snackbar.Snackbar
 import ru.stas.testtask.databinding.FragmentLoginBinding
+import ru.stas.viewmodel.UserViewModel
 
 
 class LoginFragment : Fragment() {
@@ -17,6 +21,7 @@ class LoginFragment : Fragment() {
         get() = checkNotNull(_binding) {
             "Cannot access binding because it is null. Is the view visible?"
         }
+    private val userViewModel: UserViewModel by viewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -24,22 +29,32 @@ class LoginFragment : Fragment() {
     ): View? {
         _binding = FragmentLoginBinding.inflate(inflater, container, false)
 
-//        binding.btnLogin.setOnClickListener {
-//            findNavController().navigate(R.id.action_loginFragment_to_profileFragment)
-//        }
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         showPassword()
+        binding.btnLogin.setOnClickListener {
+            authenticationUser()
+        }
+
     }
 
     override fun onDestroy() {
         super.onDestroy()
         _binding = null
     }
-
+    private fun authenticationUser() {
+        val firstName = binding.etFirstName.text.toString()
+        userViewModel.authenticationName(firstName = firstName).observe(viewLifecycleOwner) { user ->
+            if (user.firstName.isNotEmpty()) {
+                    findNavController().navigate(R.id.profileFragment)
+            }else{
+                Snackbar.make(requireView(), "Пользователь не найден, пройдите регистрацию", Snackbar.LENGTH_LONG).show()
+            }
+        }
+    }
     private fun showPassword() {
         val passwordEditText = binding.etPassword
         val eyeImageView = binding.imgEye
