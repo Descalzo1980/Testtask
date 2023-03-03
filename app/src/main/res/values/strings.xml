@@ -3,7 +3,7 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="sing_in">Sing in</string>
     <string name="login">Login</string>
-    <string name="profile">Profile</string>
+    <string name="profile">profile</string>
     <string name="change_photo">Change photo</string>
     <string name="satria_adhi_pradana">Satria Adhi Pradana</string>
     <string name="upload_item">Upload item</string>
@@ -28,4 +28,6 @@
     <string name="log_in">Log in</string>
     <string name="sign_in_with_apple">Sign in with Apple</string>
     <string name="sign_in_with_google">Sign in with Google</string>
+    <string name="open">Open</string>
+    <string name="close">Close</string>
 </resources>

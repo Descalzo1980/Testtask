@@ -27,6 +27,9 @@ class ProfileFragment : Fragment() {
         _binding = FragmentProfileBinding.inflate(inflater,container,false)
         logOut()
 //        addName()
+        binding.tvTradeStore.setOnClickListener {
+            findNavController().navigate(R.id.pageOneFragment)
+        }
         return binding.root
     }
 

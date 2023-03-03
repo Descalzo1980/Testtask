@@ -6,30 +6,17 @@
     android:layout_height="match_parent"
     tools:context=".PageOneFragment">
 
-    <ImageView
-        android:id="@+id/imageView3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="15dp"
-        android:layout_marginTop="54dp"
-        android:src="@drawable/grid"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <TextView
-        android:id="@+id/textView5"
+        android:id="@+id/tv_trade_by"
         android:layout_width="144dp"
         android:layout_height="23dp"
-        android:layout_marginStart="100dp"
         android:layout_marginTop="54dp"
         android:gravity="center"
         android:text="Trade by bata"
         android:textColor="@color/black"
         android:textSize="20sp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toStartOf="@+id/imageView4"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/imageView3"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -68,7 +55,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/idSV"
+        android:id="@+id/et_search"
         android:layout_width="262dp"
         android:layout_height="24dp"
         android:layout_marginTop="128dp"
@@ -82,14 +69,14 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
-        android:id="@+id/imageView7"
+        android:id="@+id/iv_search"
         android:layout_width="8dp"
         android:layout_height="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
         android:src="@drawable/search"
-        app:layout_constraintBottom_toBottomOf="@+id/idSV"
-        app:layout_constraintEnd_toEndOf="@+id/idSV" />
+        app:layout_constraintBottom_toBottomOf="@+id/et_search"
+        app:layout_constraintEnd_toEndOf="@+id/et_search" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_icons"
@@ -100,7 +87,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/idSV"
+        app:layout_constraintTop_toBottomOf="@+id/et_search"
         tools:listitem="@layout/list_item_icons" />
 
     <TextView
@@ -185,5 +172,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:menu="@menu/nav_menu" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
