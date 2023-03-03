@@ -22,6 +22,9 @@
         <action
             android:id="@+id/action_loginFragment_to_profileFragment"
             app:destination="@id/profileFragment" />
+        <argument
+            android:name="firstName"
+            app:argType="string" />
     </fragment>
     <fragment
         android:id="@+id/profileFragment"
@@ -31,6 +34,9 @@
         <action
             android:id="@+id/action_profileFragment_to_pageOneFragment"
             app:destination="@id/pageOneFragment" />
+        <argument
+            android:name="firstName"
+            app:argType="string" />
     </fragment>
     <fragment
         android:id="@+id/pageOneFragment"

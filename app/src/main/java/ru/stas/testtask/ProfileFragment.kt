@@ -26,7 +26,7 @@ class ProfileFragment : Fragment() {
     ): View? {
         _binding = FragmentProfileBinding.inflate(inflater,container,false)
         logOut()
-//        addName()
+        addName()
         binding.tvTradeStore.setOnClickListener {
             findNavController().navigate(R.id.pageOneFragment)
         }
@@ -38,17 +38,17 @@ class ProfileFragment : Fragment() {
         _binding = null
     }
 
-//    private fun addName(){
-//        val firstName = ProfileFragmentArgs.fromBundle(requireArguments()).firstName
-//        val spannable = SpannableString("Привет $firstName")
-//        spannable.setSpan(
-//            AlignmentSpan.Standard(Layout.Alignment.ALIGN_CENTER),
-//            0,
-//            spannable.length,
-//            Spannable.SPAN_EXCLUSIVE_EXCLUSIVE
-//        )
-//        binding.tvNameProfile.text = spannable
-//    }
+    private fun addName(){
+        val firstName = ProfileFragmentArgs.fromBundle(requireArguments()).firstName
+        val spannable = SpannableString("Привет $firstName")
+        spannable.setSpan(
+            AlignmentSpan.Standard(Layout.Alignment.ALIGN_CENTER),
+            0,
+            spannable.length,
+            Spannable.SPAN_EXCLUSIVE_EXCLUSIVE
+        )
+        binding.tvNameProfile.text = spannable
+    }
     private fun logOut(){
         binding.ivLogOut.setOnClickListener {
             findNavController().navigate(R.id.singInFragment)

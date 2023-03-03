@@ -37,6 +37,7 @@ class LoginFragment : Fragment() {
         showPassword()
         binding.btnLogin.setOnClickListener {
             authenticationUser()
+            addName()
         }
 
     }
@@ -54,6 +55,12 @@ class LoginFragment : Fragment() {
                 Snackbar.make(requireView(), "Пользователь не найден, пройдите регистрацию", Snackbar.LENGTH_LONG).show()
             }
         }
+    }
+
+        private fun addName(){
+        val firstName = binding.etFirstName.text.toString()
+        val action = LoginFragmentDirections.actionLoginFragmentToProfileFragment(firstName)
+        findNavController().navigate(action)
     }
     private fun showPassword() {
         val passwordEditText = binding.etPassword

@@ -41,7 +41,6 @@ class SingInFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         binding.btnSingIn.setOnClickListener {
             insertDataToDatabase()
-//            addName()
             cleanText()
         }
     }
@@ -49,12 +48,6 @@ class SingInFragment : Fragment() {
         super.onDestroy()
         _binding = null
     }
-
-//    private fun addName(){
-//        val firstName = binding.etFirstName.text.toString()
-//        val action = SingInFragmentDirections.actionSingInFragmentToProfileFragment(firstName)
-//        findNavController().navigate(action)
-//    }
 
     private fun insertDataToDatabase() {
         val firstName = binding.etFirstName.text.toString()
