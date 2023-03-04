@@ -38,8 +38,8 @@ class PageOneFragment : Fragment() {
 
         adapterFlashSale = FlashSaleAdapter(listOf())
         adapterLatestAdapter = LatestAdapter(listOf())
-        binding.rvFlash.layoutManager = LinearLayoutManager(requireContext())
-        binding.rvLatest.layoutManager = LinearLayoutManager(requireContext())
+        binding.rvFlash.layoutManager = LinearLayoutManager(context,LinearLayoutManager.HORIZONTAL,true)
+        binding.rvLatest.layoutManager = LinearLayoutManager(context,LinearLayoutManager.HORIZONTAL,true)
         binding.rvFlash.adapter = adapterFlashSale
         binding.rvLatest.adapter = adapterLatestAdapter
         latestViewModel.getLatest()
@@ -51,9 +51,11 @@ class PageOneFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         latestViewModel.latestLiveData.observe(viewLifecycleOwner, Observer { latest ->
             adapterLatestAdapter.setItems(latest)
+            adapterLatestAdapter.notifyDataSetChanged()
         })
         flashSaleViewModel.flashSaleLiveData.observe(viewLifecycleOwner, Observer { flashSale ->
             adapterFlashSale.setItems(flashSale)
+            adapterFlashSale.notifyDataSetChanged()
         })
     }
     override fun onDestroy() {
