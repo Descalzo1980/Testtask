@@ -8,7 +8,8 @@ import kotlinx.coroutines.launch
 import ru.stas.model.LatestX
 import ru.stas.repository.ProductRepositoryImpl
 
-class LatestViewModel(private var repository: ProductRepositoryImpl) : ViewModel() {
+class LatestViewModel() : ViewModel() {
+    private val repository = ProductRepositoryImpl()
 
     private var _latestLiveData = MutableLiveData<List<LatestX>>()
     var latestLiveData: LiveData<List<LatestX>> = _latestLiveData

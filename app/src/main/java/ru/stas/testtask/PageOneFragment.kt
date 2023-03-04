@@ -27,8 +27,8 @@ class PageOneFragment : Fragment() {
     private lateinit var adapterFlashSale: FlashSaleAdapter
     private lateinit var adapterLatestAdapter: LatestAdapter
 
-    private val flashSaleViewModel: FlashSaleViewModel by viewModels()
-    private val latestViewModel: LatestViewModel by viewModels()
+    private val flashSaleViewModel: FlashSaleViewModel by viewModels(ownerProducer = { requireParentFragment() })
+    private val latestViewModel: LatestViewModel by viewModels(ownerProducer = { requireParentFragment() })
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

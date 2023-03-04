@@ -8,9 +8,9 @@ import kotlinx.coroutines.launch
 import ru.stas.model.FlashSale
 import ru.stas.repository.ProductRepositoryImpl
 
-const val TAG = "Заебало"
+class FlashSaleViewModel() : ViewModel() {
 
-class FlashSaleViewModel(private val repository: ProductRepositoryImpl) : ViewModel() {
+    private val repository = ProductRepositoryImpl()
 
     private val _flashSaleLiveData = MutableLiveData<List<FlashSale>>()
     val flashSaleLiveData: LiveData<List<FlashSale>> = _flashSaleLiveData
