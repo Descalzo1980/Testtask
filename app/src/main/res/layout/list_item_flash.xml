@@ -5,7 +5,7 @@
     android:layout_height="match_parent">
 
     <TextView
-        android:id="@+id/tv_phones"
+        android:id="@+id/tv_category_flash"
         android:layout_width="35dp"
         android:layout_height="12dp"
         android:layout_marginStart="16dp"
@@ -14,11 +14,11 @@
         android:gravity="center"
         android:background="@drawable/shape_form_and_button"
         android:elevation="10dp"
-        android:text="Phones"
+        android:text="Kids"
         android:textSize="6sp" />
 
     <TextView
-        android:id="@+id/tv_phone"
+        android:id="@+id/tv_category_name_flash"
         android:layout_width="75dp"
         android:layout_height="26dp"
         android:elevation="10dp"
@@ -31,7 +31,7 @@
         android:textStyle="bold" />
 
     <TextView
-        android:id="@+id/tv_cost"
+        android:id="@+id/tv_price_flash"
         android:layout_width="40dp"
         android:layout_height="9dp"
         android:elevation="10dp"
@@ -44,10 +44,10 @@
         android:textStyle="bold" />
 
     <ImageView
-        android:id="@+id/iv_fab"
+        android:id="@+id/iv_fab_flash"
         android:layout_width="20dp"
         android:layout_height="20dp"
-        android:layout_below="@id/iv_samsung"
+        android:layout_below="@id/iv_photo_flash"
         android:layout_alignParentLeft="true"
         android:layout_marginLeft="89dp"
         android:layout_marginTop="-25dp"
@@ -55,7 +55,7 @@
         android:src="@drawable/fab" />
 
     <ImageView
-        android:id="@+id/iv_samsung"
+        android:id="@+id/iv_photo_flash"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/shose" />

@@ -5,7 +5,6 @@ import android.text.InputType
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
@@ -60,7 +59,7 @@ class LoginFragment : Fragment() {
     private fun addName(): String{
         val firstName = binding.etFirstName.text.toString()
         val action = LoginFragmentDirections.actionLoginFragmentToProfileFragment(firstName)
-            if (firstName != null && firstName.isNotEmpty() && firstName.isNotBlank()){
+            if (firstName.isNotEmpty() && firstName.isNotBlank()){
                 findNavController().navigate(action)
             }
         return ""
