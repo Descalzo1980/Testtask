@@ -6,8 +6,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.viewModels
-import androidx.lifecycle.Observer
+import androidx.fragment.app.activityViewModels
+import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import ru.stas.adapter.FlashSaleAdapter
 import ru.stas.adapter.IconAdapter
@@ -28,39 +28,39 @@ class PageOneFragment : Fragment() {
     private lateinit var adapterLatestAdapter: LatestAdapter
     private lateinit var iconAdapter: IconAdapter
 
-    private val viewModel: MyViewModel by viewModels(ownerProducer = { requireParentFragment() })
+    private val viewModel: MyViewModel by activityViewModels()
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         _binding = FragmentPageOneBinding.inflate(inflater,container,false)
+        viewModel.flashSalesLiveData()
+        viewModel.latestProducts()
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
+//        viewModel = ViewModelProvider(requireActivity()).get(MyViewModel::class.java)
         adapterFlashSale = FlashSaleAdapter()
         adapterLatestAdapter = LatestAdapter()
         iconAdapter = IconAdapter(Icons.values().toList())
-        binding.rvFlash.layoutManager = LinearLayoutManager(context,LinearLayoutManager.HORIZONTAL,true)
-        binding.rvLatest.layoutManager = LinearLayoutManager(context,LinearLayoutManager.HORIZONTAL,true)
-        binding.rvFlash.adapter = adapterFlashSale
+//        binding.rvFlash.layoutManager = LinearLayoutManager(context,LinearLayoutManager.HORIZONTAL,true)
+        binding.rvLatest.layoutManager = LinearLayoutManager(context)
+//        binding.rvFlash.adapter = adapterFlashSale
         binding.rvLatest.adapter = adapterLatestAdapter
-        binding.rvIcons.adapter = iconAdapter
-        binding.rvIcons.layoutManager = LinearLayoutManager(context,LinearLayoutManager.HORIZONTAL,true)
+//        binding.rvIcons.adapter = iconAdapter
+//        binding.rvIcons.layoutManager = LinearLayoutManager(context,LinearLayoutManager.HORIZONTAL,true)
 
-        viewModel.latestProductsLiveData.observe(viewLifecycleOwner, Observer { latest ->
-            adapterLatestAdapter.submitList(latest)
-        })
+        viewModel.observeFlashSale().observe(viewLifecycleOwner) { flashSales ->
+            adapterFlashSale.submitList(flashSales?: emptyList())
+        }
 
-        viewModel.flashSalesLiveData.observe(viewLifecycleOwner, Observer { flashSale ->
-            adapterFlashSale.submitList(flashSale)
-        })
+            viewModel.observeLatestProducts().observe(viewLifecycleOwner) { latestProducts ->
+                adapterLatestAdapter.submitList(latestProducts ?: emptyList())
+        }
+
     }
     override fun onDestroy() {
         super.onDestroy()

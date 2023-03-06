@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import ru.stas.model.FlashSale
+import ru.stas.model.LatestX
 import ru.stas.testtask.databinding.ListItemFlashBinding
 
 class FlashSaleAdapter :
@@ -33,6 +34,10 @@ class FlashSaleAdapter :
         flashSales = newList
         diffResult.dispatchUpdatesTo(this)
     }
+//    fun setFlashList(flashSale: List<FlashSale>){
+//        this.flashSales = ArrayList(flashSale)
+//        notifyDataSetChanged()
+//    }
 
     inner class ViewHolder(private val binding: ListItemFlashBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bind(flashSale: FlashSale) {
