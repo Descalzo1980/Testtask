@@ -4,6 +4,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import ru.stas.model.Latest
 import ru.stas.model.LatestX
 import ru.stas.testtask.databinding.ListItemLatestBinding
 

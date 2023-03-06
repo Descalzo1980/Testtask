@@ -1,3 +1,4 @@
+
 package ru.stas.testtask
 
 import android.os.Bundle
@@ -7,17 +8,15 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
-import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import ru.stas.adapter.FlashSaleAdapter
 import ru.stas.adapter.IconAdapter
 import ru.stas.adapter.LatestAdapter
 import ru.stas.model.Icons
 import ru.stas.testtask.databinding.FragmentPageOneBinding
-import ru.stas.viewmodel.FlashSaleViewModel
-import ru.stas.viewmodel.LatestViewModel
+import ru.stas.viewmodel.MyViewModel
 
-const val TAG = "фрагмент"
+
 class PageOneFragment : Fragment() {
 
     private var _binding: FragmentPageOneBinding? = null
@@ -29,9 +28,11 @@ class PageOneFragment : Fragment() {
     private lateinit var adapterLatestAdapter: LatestAdapter
     private lateinit var iconAdapter: IconAdapter
 
-    private val flashSaleViewModel: FlashSaleViewModel by viewModels(ownerProducer = { requireParentFragment() })
-    private val latestViewModel: LatestViewModel by viewModels(ownerProducer = { requireParentFragment() })
+    private val viewModel: MyViewModel by viewModels(ownerProducer = { requireParentFragment() })
 
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+    }
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -52,12 +53,12 @@ class PageOneFragment : Fragment() {
         binding.rvLatest.adapter = adapterLatestAdapter
         binding.rvIcons.adapter = iconAdapter
         binding.rvIcons.layoutManager = LinearLayoutManager(context,LinearLayoutManager.HORIZONTAL,true)
-        latestViewModel.getLatest()
-        flashSaleViewModel.getFlashSales()
-        latestViewModel.latestLiveData.observe(viewLifecycleOwner, Observer { latest ->
+
+        viewModel.latestProductsLiveData.observe(viewLifecycleOwner, Observer { latest ->
             adapterLatestAdapter.setItems(latest)
         })
-        flashSaleViewModel.flashSaleLiveData.observe(viewLifecycleOwner, Observer { flashSale ->
+
+        viewModel.flashSalesLiveData.observe(viewLifecycleOwner, Observer { flashSale ->
             adapterFlashSale.setItems(flashSale)
         })
     }
@@ -66,3 +67,4 @@ class PageOneFragment : Fragment() {
         _binding = null
     }
 }
+

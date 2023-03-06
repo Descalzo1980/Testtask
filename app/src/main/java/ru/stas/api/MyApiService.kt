@@ -3,7 +3,9 @@ package ru.stas.api
 import retrofit2.Response
 import retrofit2.http.GET
 import ru.stas.model.Flash
+import ru.stas.model.FlashSale
 import ru.stas.model.Latest
+import ru.stas.model.LatestX
 
 interface MyApiService {
 
