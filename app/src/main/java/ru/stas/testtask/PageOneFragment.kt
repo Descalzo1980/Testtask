@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import ru.stas.adapter.FlashSaleAdapter
 import ru.stas.adapter.IconAdapter
@@ -41,6 +42,7 @@ class PageOneFragment : Fragment() {
         setupRecycleViewIcon()
         setupRecycleViewLatest()
         setupRecycleViewFlash()
+        onBottomNavItemSelected()
         return binding.root
     }
 
@@ -58,12 +60,32 @@ class PageOneFragment : Fragment() {
             }
         }
     }
-
-
-
     override fun onDestroy() {
         super.onDestroy()
         _binding = null
+    }
+
+    private fun onBottomNavItemSelected() {
+        binding.navigation.setOnItemSelectedListener {
+            when (it.itemId) {
+                R.id.home -> {
+                    findNavController().navigate(R.id.singInFragment)
+                    return@setOnItemSelectedListener true
+                }
+                R.id.profile -> {
+                    findNavController().navigate(R.id.profileFragment)
+                    return@setOnItemSelectedListener true
+                }
+                R.id.cart -> {
+                    findNavController().navigate(R.id.pageOneFragment)
+                    return@setOnItemSelectedListener true
+                }
+                else -> {
+                    findNavController().navigate(R.id.singInFragment)
+                    return@setOnItemSelectedListener true
+                }
+            }
+        }
     }
 
     private fun setupRecycleViewLatest() = binding.rvLatest.apply {
