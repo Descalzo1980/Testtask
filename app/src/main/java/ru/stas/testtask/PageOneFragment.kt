@@ -2,23 +2,20 @@
 package ru.stas.testtask
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import ru.stas.adapter.FlashSaleAdapter
 import ru.stas.adapter.IconAdapter
 import ru.stas.adapter.LatestAdapter
 import ru.stas.model.Icons
-import ru.stas.model.LatestX
 import ru.stas.testtask.databinding.FragmentPageOneBinding
 import ru.stas.viewmodel.MyViewModel
 
-const val TAG = "фаргмент"
+
 class PageOneFragment : Fragment() {
 
     private var _binding: FragmentPageOneBinding? = null
@@ -62,6 +59,8 @@ class PageOneFragment : Fragment() {
         }
     }
 
+
+
     override fun onDestroy() {
         super.onDestroy()
         _binding = null
@@ -83,4 +82,5 @@ class PageOneFragment : Fragment() {
         binding.rvIcons.layoutManager = LinearLayoutManager(context,LinearLayoutManager.HORIZONTAL,false)
     }
 }
+
 

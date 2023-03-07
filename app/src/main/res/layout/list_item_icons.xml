@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="63dp"
     android:layout_height="63dp"
+    app:cardElevation="0dp"
     tools:context=".PageOneFragment">
 
     <RelativeLayout

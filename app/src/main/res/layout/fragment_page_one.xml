@@ -21,6 +21,15 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
+        android:layout_width="22dp"
+        android:layout_height="22dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="52dp"
+        android:src="@drawable/grid"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
         android:id="@+id/imageView4"
         android:layout_width="32dp"
         android:layout_height="32dp"
@@ -81,13 +90,10 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_icons"
         android:layout_width="match_parent"
-        android:layout_height="59dp"
+        android:layout_height="63dp"
         android:layout_weight="1"
-        android:clipToPadding="false"
         android:layout_marginTop="16dp"
-        android:paddingStart="16dp"
-        android:paddingEnd="16dp"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/et_search"
         tools:listitem="@layout/list_item_icons" />
