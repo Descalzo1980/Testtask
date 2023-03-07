@@ -27,6 +27,7 @@ class ProfileFragment : Fragment() {
         _binding = FragmentProfileBinding.inflate(inflater,container,false)
         logOut()
 //        addName()
+        onBottomNavItemSelected()
         binding.tvTradeStore.setOnClickListener {
             findNavController().navigate(R.id.pageOneFragment)
         }
@@ -52,6 +53,33 @@ class ProfileFragment : Fragment() {
     private fun logOut(){
         binding.ivLogOut.setOnClickListener {
             findNavController().navigate(R.id.singInFragment)
+        }
+    }
+
+    private fun onBottomNavItemSelected() {
+        binding.navigation.setOnItemSelectedListener {
+            when (it.itemId) {
+                R.id.home -> {
+                    findNavController().navigate(R.id.singInFragment)
+                    return@setOnItemSelectedListener true
+                }
+                R.id.profile -> {
+                    findNavController().navigate(R.id.profileFragment)
+                    return@setOnItemSelectedListener true
+                }
+                R.id.cart -> {
+                    findNavController().navigate(R.id.pageOneFragment)
+                    return@setOnItemSelectedListener true
+                }
+                R.id.heart -> {
+                    findNavController().navigate(R.id.singInFragment)
+                    return@setOnItemSelectedListener true
+                }
+                else -> {
+                    findNavController().navigate(R.id.singInFragment)
+                    return@setOnItemSelectedListener true
+                }
+            }
         }
     }
 }
