@@ -9,7 +9,7 @@ import ru.stas.model.FlashSale
 import ru.stas.model.LatestX
 import ru.stas.testtask.databinding.ListItemFlashBinding
 
-class FlashSaleAdapter :
+class FlashSaleAdapter() :
     RecyclerView.Adapter<FlashSaleAdapter.ViewHolder>() {
 
     private var flashSales = listOf<FlashSale>()
@@ -28,16 +28,16 @@ class FlashSaleAdapter :
         return flashSales.size
     }
 
-    fun submitList(newList: List<FlashSale>) {
-        val diffResult = DiffUtil.calculateDiff(LatestDiffCallback(flashSales, newList)
-        )
-        flashSales = newList
-        diffResult.dispatchUpdatesTo(this)
-    }
-//    fun setFlashList(flashSale: List<FlashSale>){
-//        this.flashSales = ArrayList(flashSale)
-//        notifyDataSetChanged()
+//    fun submitList(newList: List<FlashSale>) {
+//        val diffResult = DiffUtil.calculateDiff(LatestDiffCallback(flashSales, newList)
+//        )
+//        flashSales = newList
+//        diffResult.dispatchUpdatesTo(this)
 //    }
+    fun setFlashList(flashSale: List<FlashSale>){
+        this.flashSales = ArrayList(flashSale)
+        notifyDataSetChanged()
+    }
 
     inner class ViewHolder(private val binding: ListItemFlashBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bind(flashSale: FlashSale) {

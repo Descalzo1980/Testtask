@@ -66,7 +66,9 @@
         android:id="@+id/iv_latest_photo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/phone_samsung"
+        tools:src="@tools:sample/avatars"
+        android:layout_gravity="center"
+        android:scaleType="centerCrop"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 

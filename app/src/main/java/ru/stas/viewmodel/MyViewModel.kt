@@ -1,66 +1,59 @@
 package ru.stas.viewmodel
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
+import androidx.lifecycle.viewModelScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import ru.stas.api.RetrofitInstance
-import ru.stas.model.Flash
 import ru.stas.model.FlashSale
-import ru.stas.model.Latest
 import ru.stas.model.LatestX
-
 
 class MyViewModel : ViewModel() {
 
     private val apiService = RetrofitInstance.apiService
 
-//    var flashSales = MutableLiveData<List<FlashSale>>()
-//    var latestProducts = MutableLiveData<List<LatestX>>()
-
-
-    var flashSales = MutableLiveData<List<FlashSale>>().apply {
-        value = emptyList() // инициализируйте значение по умолчанию
-    }
-    var latestProducts = MutableLiveData<List<LatestX>>().apply {
-        value = emptyList()
-    }
+    var flashSales = MutableLiveData<List<FlashSale>>()
+    var latestProducts = MutableLiveData<List<LatestX>>()
 
     init {
-        flashSalesLiveData()
-        latestProducts()
+        viewModelScope.launch {
+            flashSalesLiveData()
+            latestLiveData()
+        }
     }
 
-    fun flashSalesLiveData() {
-
-        apiService.getFlashSales().enqueue(object : Callback<Flash> {
-            override fun onResponse(call: Call<Flash>, response: Response<Flash>) {
-                if (response.body() != null) {
-                    flashSales.value = response.body()!!.flash_sale
+    private suspend fun flashSalesLiveData() {
+        withContext(Dispatchers.IO) {
+            try {
+                val response = apiService.getFlashSales()
+                if (response.isSuccessful && response.body() != null) {
+                    flashSales.postValue(response.body()!!.flash_sale)
+                } else {
+                    response.errorBody()
                 }
+            } catch (e: Exception) {
+                Log.e("TAG", e.message.toString())
             }
-
-            override fun onFailure(call: Call<Flash>, t: Throwable) {
-                TODO("Not yet implemented")
-            }
-        })
-
+        }
     }
 
-    fun latestProducts() {
-        apiService.getLatestProducts().enqueue(object : Callback<Latest> {
-            override fun onResponse(call: Call<Latest>, response: Response<Latest>) {
-                if (response.body() != null) {
-                    latestProducts.value = response.body()!!.latest
+    private suspend fun latestLiveData() {
+        withContext(Dispatchers.IO) {
+            try {
+                val response = apiService.getLatestProducts()
+                if (response.isSuccessful && response.body() != null) {
+                    latestProducts.postValue(response.body()!!.latest)
+                } else {
+                    response.errorBody()
                 }
+            } catch (e: Exception) {
+                Log.e("TAG", e.message.toString())
             }
-
-            override fun onFailure(call: Call<Latest>, t: Throwable) {
-                TODO("Not yet implemented")
-            }
-        })
+        }
     }
 
     fun observeLatestProducts(): LiveData<List<LatestX>> {
@@ -71,10 +64,4 @@ class MyViewModel : ViewModel() {
         return flashSales
     }
 }
-
-
-
-
-
-
 
