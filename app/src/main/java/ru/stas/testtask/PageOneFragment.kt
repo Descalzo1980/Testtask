@@ -84,6 +84,10 @@ class PageOneFragment : Fragment() {
                     findNavController().navigate(R.id.singInFragment)
                     return@setOnItemSelectedListener true
                 }
+                R.id.message -> {
+                    findNavController().navigate(R.id.singInFragment)
+                    return@setOnItemSelectedListener true
+                }
                 else -> {
                     findNavController().navigate(R.id.singInFragment)
                     return@setOnItemSelectedListener true
