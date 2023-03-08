@@ -43,7 +43,6 @@ class PageOneFragment : Fragment(),FlashSaleAdapter.OnItemClickListener {
         setupRecycleViewIcon()
         setupRecycleViewLatest()
         setupRecycleViewFlash()
-        onBottomNavItemSelected()
         return binding.root
     }
 
@@ -73,36 +72,6 @@ class PageOneFragment : Fragment(),FlashSaleAdapter.OnItemClickListener {
         findNavController().navigate(action)
     }
 
-    private fun onBottomNavItemSelected() {
-        binding.navigation.setOnItemSelectedListener {
-            when (it.itemId) {
-                R.id.home -> {
-                    findNavController().navigate(R.id.singInFragment)
-                    return@setOnItemSelectedListener true
-                }
-                R.id.profile -> {
-                    findNavController().navigate(R.id.profileFragment)
-                    return@setOnItemSelectedListener true
-                }
-                R.id.cart -> {
-                    findNavController().navigate(R.id.pageOneFragment)
-                    return@setOnItemSelectedListener true
-                }
-                R.id.heart -> {
-                    findNavController().navigate(R.id.singInFragment)
-                    return@setOnItemSelectedListener true
-                }
-                R.id.message -> {
-                    findNavController().navigate(R.id.singInFragment)
-                    return@setOnItemSelectedListener true
-                }
-                else -> {
-                    findNavController().navigate(R.id.singInFragment)
-                    return@setOnItemSelectedListener true
-                }
-            }
-        }
-    }
 
     private fun setupRecycleViewLatest() = binding.rvLatest.apply {
         adapterLatestAdapter = LatestAdapter()
