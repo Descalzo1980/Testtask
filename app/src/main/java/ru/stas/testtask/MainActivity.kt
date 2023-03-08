@@ -5,8 +5,10 @@ import android.view.MenuItem
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.NavController
+import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.NavigationUI
+import androidx.navigation.ui.onNavDestinationSelected
 import androidx.navigation.ui.setupWithNavController
 import ru.stas.testtask.databinding.ActivityMainBinding
 
@@ -35,21 +37,14 @@ class MainActivity : AppCompatActivity() {
                     binding.bottomNavigation.visibility = View.VISIBLE
                 }
                 else -> {
-                    binding.bottomNavigation.visibility = View.GONE
+                    binding.bottomNavigation.visibility = View.INVISIBLE
                 }
             }
         }
         NavigationUI.setupWithNavController(binding.bottomNavigation, navController)
     }
 
-
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        when (item.itemId) {
-            R.id.singInFragment -> {
-                navHostFragment.navController
-                return true
-            }
-        }
-        return super.onOptionsItemSelected(item)
+        return item.onNavDestinationSelected(findNavController(R.id.nav_host_fragment_container)) || super.onOptionsItemSelected(item)
     }
 }
