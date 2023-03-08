@@ -12,12 +12,13 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import ru.stas.adapter.FlashSaleAdapter
 import ru.stas.adapter.IconAdapter
 import ru.stas.adapter.LatestAdapter
+import ru.stas.model.FlashSale
 import ru.stas.model.Icons
 import ru.stas.testtask.databinding.FragmentPageOneBinding
 import ru.stas.viewmodel.MyViewModel
 
 
-class PageOneFragment : Fragment() {
+class PageOneFragment : Fragment(),FlashSaleAdapter.OnItemClickListener {
 
     private var _binding: FragmentPageOneBinding? = null
     private val binding get() = _binding!!
@@ -48,8 +49,8 @@ class PageOneFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        viewModel.observeFlashSale().observe(viewLifecycleOwner) { flashSales ->
-            flashSales?.let {
+        viewModel.observeFlashSale().observe(viewLifecycleOwner) { flashSale ->
+            flashSale?.let {
                 adapterFlashSale.submitList(it)
             }
         }
@@ -59,10 +60,17 @@ class PageOneFragment : Fragment() {
                 adapterLatestAdapter.setFlashList(it)
             }
         }
+
+        adapterFlashSale.setOnItemClickListener(this)
     }
     override fun onDestroy() {
         super.onDestroy()
         _binding = null
+    }
+
+    override fun onItemClick(flashSale: FlashSale) {
+        val action = PageOneFragmentDirections.actionPageOneFragmentToPageTwoFragment()
+        findNavController().navigate(action)
     }
 
     private fun onBottomNavItemSelected() {
@@ -111,6 +119,7 @@ class PageOneFragment : Fragment() {
         binding.rvIcons.adapter = iconAdapter
         binding.rvIcons.layoutManager = LinearLayoutManager(context,LinearLayoutManager.HORIZONTAL,false)
     }
+
 }
 
 

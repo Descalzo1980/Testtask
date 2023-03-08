@@ -48,6 +48,15 @@
         android:id="@+id/pageOneFragment"
         android:name="ru.stas.testtask.PageOneFragment"
         android:label="fragment_page_one"
-        tools:layout="@layout/fragment_page_one" />
+        tools:layout="@layout/fragment_page_one" >
+        <action
+            android:id="@+id/action_pageOneFragment_to_pageTwoFragment"
+            app:destination="@id/pageTwoFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/pageTwoFragment"
+        android:name="ru.stas.testtask.PageTwoFragment"
+        android:label="fragment_page_two"
+        tools:layout="@layout/fragment_page_two" />
 
 </navigation>

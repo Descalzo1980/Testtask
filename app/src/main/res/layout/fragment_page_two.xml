@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".PageTwoFragment">
+
+    <ImageView
+        android:id="@+id/iv_item_flash"
+        android:layout_width="328dp"
+        android:layout_height="279dp"
+        android:scaleType="centerCrop"
+        android:layout_marginTop="70dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:src="@tools:sample/avatars" />
+
+    <ImageView
+        android:id="@+id/iv_back_arrow_item"
+        android:layout_width="6dp"
+        android:layout_height="12dp"
+        android:src="@drawable/back_item_flash"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="64dp" />
+
+    <ImageView
+        android:id="@+id/iv_heart_share"
+        android:layout_width="42dp"
+        android:layout_height="95dp"
+        android:layout_marginStart="308dp"
+        android:layout_marginTop="156dp"
+        android:src="@drawable/rectangle_item_flash"
+        app:layout_constraintStart_toStartOf="@id/iv_item_flash"
+        app:layout_constraintTop_toTopOf="@id/iv_item_flash" />
+
+    <ImageView
+        android:id="@+id/iv_share_flash"
+        android:layout_width="16dp"
+        android:layout_height="18dp"
+        android:src="@drawable/share"
+        android:layout_marginTop="60dp"
+        android:layout_marginBottom="17dp"
+        app:layout_constraintBottom_toBottomOf="@id/iv_heart_share"
+        app:layout_constraintEnd_toEndOf="@id/iv_heart_share"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="@id/iv_heart_share"
+        app:layout_constraintTop_toTopOf="@id/iv_heart_share"
+        app:layout_constraintVertical_bias="0.766" />
+
+    <ImageView
+        android:id="@+id/iv_heart_item_flash"
+        android:layout_width="15dp"
+        android:layout_height="13dp"
+        android:src="@drawable/heart_item_flash"
+        android:layout_marginTop="17dp"
+        android:layout_marginBottom="65dp"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintBottom_toBottomOf="@id/iv_heart_share"
+        app:layout_constraintEnd_toEndOf="@id/iv_heart_share"
+        app:layout_constraintStart_toStartOf="@id/iv_heart_share"
+        app:layout_constraintTop_toTopOf="@id/iv_heart_share"/>
+
+    <ImageView
+        android:id="@+id/iv_line_item_flash"
+        android:layout_width="11dp"
+        android:layout_height="1dp"
+        android:src="@drawable/line_item_flash"
+        app:layout_constraintBottom_toBottomOf="@id/iv_heart_share"
+        app:layout_constraintEnd_toEndOf="@id/iv_heart_share"
+        app:layout_constraintStart_toStartOf="@id/iv_heart_share"
+        app:layout_constraintTop_toTopOf="@id/iv_heart_share"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_flash_item"
+        android:layout_width="match_parent"
+        android:layout_height="83dp"
+        android:layout_marginTop="35dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/iv_item_flash" />
+
+    <TextView
+        android:id="@+id/tv_category_item_flash"
+        android:layout_width="186dp"
+        android:layout_height="36dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="22dp"
+        android:text="New balance Sneakers"
+        android:textSize="17sp"
+        android:textColor="#161826"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/rv_flash_item" />
+
+    <TextView
+        android:id="@+id/tv_price_item_flash"
+        android:layout_width="70dp"
+        android:layout_height="17dp"
+        android:layout_marginTop="24dp"
+        android:text="@string/_22_50"
+        android:textSize="13sp"
+        android:textColor="#161826"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/rv_flash_item" />
+
+    <TextView
+        android:id="@+id/tv_features_item_flash"
+        android:layout_width="231dp"
+        android:layout_height="42dp"
+        android:layout_marginTop="24dp"
+        android:text="@string/features_waterproof_fire_air_resistant_shoes_all_changed_when_the_country_of_fire_attacked"
+        android:textSize="9sp"
+        android:textColor="#808080"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_category_item_flash" />
+
+    <ImageView
+        android:id="@+id/iv_item_stars"
+        android:layout_width="10dp"
+        android:layout_height="10dp"
+        android:layout_marginStart="24dp"
+        android:src="@drawable/stars"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_features_item_flash" />
+
+    <TextView
+        android:id="@+id/tv_rating"
+        android:layout_width="13dp"
+        android:layout_height="11dp"
+        android:layout_marginStart="13dp"
+        android:text="3.9"
+        android:textSize="9sp"
+        android:gravity="center"
+        android:textColor="#808080"
+        app:layout_constraintStart_toStartOf="@id/iv_item_stars"
+        app:layout_constraintTop_toBottomOf="@+id/tv_features_item_flash" />
+
+    <TextView
+        android:id="@+id/tv_review"
+        android:layout_width="64dp"
+        android:layout_height="12dp"
+        android:layout_marginStart="15dp"
+        android:text="(4000 reviews)"
+        android:textSize="9sp"
+        android:gravity="center"
+        android:textColor="#808080"
+        app:layout_constraintStart_toStartOf="@id/tv_rating"
+        app:layout_constraintTop_toBottomOf="@+id/tv_features_item_flash" />
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -7,19 +7,26 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners
 import ru.stas.model.FlashSale
-import ru.stas.model.LatestX
-import ru.stas.testtask.R
 import ru.stas.testtask.databinding.ListItemFlashBinding
 
-class FlashSaleAdapter() :
-    RecyclerView.Adapter<FlashSaleAdapter.ViewHolder>() {
+class FlashSaleAdapter() : RecyclerView.Adapter<FlashSaleAdapter.ViewHolder>() {
 
     private var flashSales = listOf<FlashSale>()
+
+    interface OnItemClickListener {
+        fun onItemClick(flashSale: FlashSale)
+    }
+
+    fun setOnItemClickListener(listener: OnItemClickListener) {
+        onItemClickListener = listener
+    }
+
+    private lateinit var onItemClickListener: OnItemClickListener
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val inflater = LayoutInflater.from(parent.context)
         val binding = ListItemFlashBinding.inflate(inflater,parent,false)
-        return ViewHolder(binding)
+        return ViewHolder(binding,onItemClickListener)
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
@@ -31,7 +38,17 @@ class FlashSaleAdapter() :
     }
 
 
-    inner class ViewHolder(private val binding: ListItemFlashBinding) : RecyclerView.ViewHolder(binding.root) {
+    inner class ViewHolder(private val binding: ListItemFlashBinding,listener: OnItemClickListener) : RecyclerView.ViewHolder(binding.root) {
+
+        init {
+            binding.itemFlashSale.setOnClickListener {
+                val position = adapterPosition
+                if (position != RecyclerView.NO_POSITION) {
+                    val flashSale = flashSales[position]
+                    onItemClickListener.onItemClick(flashSale)
+                }
+            }
+        }
         fun bind(flashSale: FlashSale) {
             binding.tvCategoryFlash.text = flashSale.category
             binding.tvCategoryNameFlash.text = flashSale.name
@@ -41,6 +58,7 @@ class FlashSaleAdapter() :
                 .load(flashSale.image_url)
                 .centerCrop()
                 .transform(RoundedCorners(9))
+                .override(174,221)
                 .into(binding.ivPhotoFlash)
         }
     }
@@ -62,3 +80,5 @@ class FlashSaleAdapter() :
         }
     }
 }
+
+
