@@ -23,7 +23,7 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val navHostFragment =
+        navHostFragment =
             supportFragmentManager.findFragmentById(R.id.nav_host_fragment_container) as NavHostFragment
         navController = navHostFragment.navController
         binding.bottomNavigation.setupWithNavController(navController)
@@ -41,6 +41,7 @@ class MainActivity : AppCompatActivity() {
         }
         NavigationUI.setupWithNavController(binding.bottomNavigation, navController)
     }
+
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
