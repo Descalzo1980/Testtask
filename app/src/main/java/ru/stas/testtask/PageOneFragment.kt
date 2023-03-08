@@ -50,7 +50,7 @@ class PageOneFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         viewModel.observeFlashSale().observe(viewLifecycleOwner) { flashSales ->
             flashSales?.let {
-                adapterFlashSale.setFlashList(it)
+                adapterFlashSale.submitList(it)
             }
         }
 
@@ -99,12 +99,12 @@ class PageOneFragment : Fragment() {
     private fun setupRecycleViewLatest() = binding.rvLatest.apply {
         adapterLatestAdapter = LatestAdapter()
         adapter = adapterLatestAdapter
-        layoutManager = LinearLayoutManager(requireContext())
+        layoutManager = LinearLayoutManager(context,LinearLayoutManager.HORIZONTAL,false)
     }
     private fun setupRecycleViewFlash() = binding.rvFlash.apply {
         adapterFlashSale = FlashSaleAdapter()
         adapter = adapterFlashSale
-        layoutManager = LinearLayoutManager(requireContext())
+        layoutManager = LinearLayoutManager(context,LinearLayoutManager.HORIZONTAL,false)
     }
     private fun setupRecycleViewIcon() = binding.rvIcons.apply {
         iconAdapter = IconAdapter(Icons.values().toList())

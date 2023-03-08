@@ -5,8 +5,10 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.bumptech.glide.load.resource.bitmap.RoundedCorners
 import ru.stas.model.FlashSale
 import ru.stas.model.LatestX
+import ru.stas.testtask.R
 import ru.stas.testtask.databinding.ListItemFlashBinding
 
 class FlashSaleAdapter() :
@@ -28,28 +30,27 @@ class FlashSaleAdapter() :
         return flashSales.size
     }
 
-//    fun submitList(newList: List<FlashSale>) {
-//        val diffResult = DiffUtil.calculateDiff(LatestDiffCallback(flashSales, newList)
-//        )
-//        flashSales = newList
-//        diffResult.dispatchUpdatesTo(this)
-//    }
-    fun setFlashList(flashSale: List<FlashSale>){
-        this.flashSales = ArrayList(flashSale)
-        notifyDataSetChanged()
-    }
 
     inner class ViewHolder(private val binding: ListItemFlashBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bind(flashSale: FlashSale) {
             binding.tvCategoryFlash.text = flashSale.category
             binding.tvCategoryNameFlash.text = flashSale.name
             binding.tvPriceFlash.text = flashSale.price.toString()
+            binding.tvDiscountFlash.text = "${flashSale.discount}% off"
             Glide.with(binding.root)
                 .load(flashSale.image_url)
+                .centerCrop()
+                .transform(RoundedCorners(9))
                 .into(binding.ivPhotoFlash)
         }
     }
 
+    fun submitList(newList: List<FlashSale>) {
+        val diffResult = DiffUtil.calculateDiff(LatestDiffCallback(flashSales, newList)
+        )
+        flashSales = newList
+        diffResult.dispatchUpdatesTo(this)
+    }
     private class LatestDiffCallback(private val oldList: List<FlashSale>, private val newList: List<FlashSale>) : DiffUtil.Callback() {
         override fun getOldListSize() = oldList.size
         override fun getNewListSize() = newList.size

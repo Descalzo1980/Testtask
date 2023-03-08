@@ -8,13 +8,13 @@ import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
-import ru.stas.api.RetrofitInstance
 import ru.stas.model.FlashSale
 import ru.stas.model.LatestX
+import ru.stas.repository.MyRepository
 
-class MyViewModel : ViewModel() {
+class MyViewModel() : ViewModel() {
 
-    private val apiService = RetrofitInstance.apiService
+    private val myRepository = MyRepository()
 
     var flashSales = MutableLiveData<List<FlashSale>>()
     var latestProducts = MutableLiveData<List<LatestX>>()
@@ -29,12 +29,9 @@ class MyViewModel : ViewModel() {
     private suspend fun flashSalesLiveData() {
         withContext(Dispatchers.IO) {
             try {
-                val response = apiService.getFlashSales()
-                if (response.isSuccessful && response.body() != null) {
-                    flashSales.postValue(response.body()!!.flash_sale)
-                } else {
-                    response.errorBody()
-                }
+                val response = myRepository.getFlashSales()
+                    flashSales.postValue(response.flash_sale)
+                Log.d("TAG", "ответ $response")
             } catch (e: Exception) {
                 Log.e("TAG", e.message.toString())
             }
@@ -44,12 +41,8 @@ class MyViewModel : ViewModel() {
     private suspend fun latestLiveData() {
         withContext(Dispatchers.IO) {
             try {
-                val response = apiService.getLatestProducts()
-                if (response.isSuccessful && response.body() != null) {
-                    latestProducts.postValue(response.body()!!.latest)
-                } else {
-                    response.errorBody()
-                }
+                val response = myRepository.getLatestProducts()
+                    latestProducts.postValue(response.latest)
             } catch (e: Exception) {
                 Log.e("TAG", e.message.toString())
             }

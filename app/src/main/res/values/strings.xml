@@ -11,6 +11,7 @@
     <string name="payment_method">Payment method</string>
     <string name="balance">Balance</string>
     <string name="_1593">$ 1593</string>
+    <string name="discount">30% off</string>
     <string name="trade_history">Trade history</string>
     <string name="restore_purchase">Restore Purchase</string>
     <string name="help">Help</string>

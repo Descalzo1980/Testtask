@@ -1,17 +1,13 @@
 package ru.stas.adapter
 
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
-import coil.load
 import com.bumptech.glide.Glide
-import ru.stas.model.Latest
+import com.bumptech.glide.load.resource.bitmap.RoundedCorners
 import ru.stas.model.LatestX
-import ru.stas.testtask.R
 import ru.stas.testtask.databinding.ListItemLatestBinding
-const val TAG = "LatestAdapter"
+
 class LatestAdapter : RecyclerView.Adapter<LatestAdapter.LatestViewHolder>() {
 
     private var latestList = mutableListOf<LatestX>()
@@ -19,7 +15,6 @@ class LatestAdapter : RecyclerView.Adapter<LatestAdapter.LatestViewHolder>() {
         latestList.clear()
         latestList.addAll(latestList1)
         notifyDataSetChanged()
-        Log.d(TAG, latestList.joinToString())
     }
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): LatestViewHolder {
         return LatestViewHolder(ListItemLatestBinding.inflate(LayoutInflater.from(parent.context), parent, false))
@@ -39,11 +34,9 @@ class LatestAdapter : RecyclerView.Adapter<LatestAdapter.LatestViewHolder>() {
             binding.tvPrice.text = latest.price.toString()
             Glide.with(binding.ivLatestPhoto)
                 .load(latest.image_url)
+                .centerCrop()
+                .transform(RoundedCorners(9))
                 .into(binding.ivLatestPhoto)
-            binding.ivLatestPhoto.load(latest.image_url){
-                placeholder(R.drawable.bill_up_close)
-            }
         }
     }
-
 }
