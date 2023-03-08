@@ -172,16 +172,5 @@
         app:layout_constraintTop_toBottomOf="@+id/rv_latest"
         tools:listitem="@layout/list_item_flash" />
 
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/navigation"
-        android:layout_width="411dp"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal|bottom"
-        app:labelVisibilityMode="unlabeled"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:menu="@menu/nav_menu" />
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

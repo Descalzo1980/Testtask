@@ -1,6 +1,7 @@
 package ru.stas.testtask
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -39,6 +40,7 @@ class PageTwoFragment : Fragment() {
         viewModel.observeFlashSaleItem().observe(viewLifecycleOwner){flashSaleItem ->
             flashSaleItem?.let {
                 adapterFlashSaleItemAdapter.setFlashItem(it)
+                Log.d("TAG","ответ ${adapterFlashSaleItemAdapter.setFlashItem(it)}" )
             }
         }
     }

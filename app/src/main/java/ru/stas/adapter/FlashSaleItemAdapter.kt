@@ -15,6 +15,9 @@ class FlashSaleItemAdapter(): RecyclerView.Adapter<FlashSaleItemAdapter.ViewHold
 
     inner class ViewHolder(private val binding: FragmentPageTwoBinding): RecyclerView.ViewHolder(binding.root){
         fun bind(flashItem: FlashItem){
+            binding.tvPriceItemFlash.text = flashItem.price.toString()
+            binding.tvFeaturesItemFlash.text = flashItem.description
+            binding.tvCategoryItemFlash.text = flashItem.name
             Glide.with(binding.root)
                 .load(flashItem.image_urls)
                 .centerCrop()
