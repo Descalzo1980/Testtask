@@ -15,14 +15,11 @@ class FlashSaleItemAdapter(): RecyclerView.Adapter<FlashSaleItemAdapter.ViewHold
 
     inner class ViewHolder(private val binding: FragmentPageTwoBinding): RecyclerView.ViewHolder(binding.root){
         fun bind(flashItem: FlashItem){
-            binding.tvPriceItemFlash.text = flashItem.price.toString()
-            binding.tvFeaturesItemFlash.text = flashItem.description
-            binding.tvCategoryItemFlash.text = flashItem.name
             Glide.with(binding.root)
-                .load(flashItem.image_urls)
+                .load(flashItem.image_urls[0])
                 .centerCrop()
                 .transform(RoundedCorners(9))
-                .override(174,221)
+                .override(328, 279)
                 .into(binding.ivItemFlash)
         }
     }

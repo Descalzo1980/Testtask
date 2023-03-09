@@ -56,9 +56,6 @@ class FlashSaleAdapter() : RecyclerView.Adapter<FlashSaleAdapter.ViewHolder>() {
             binding.tvDiscountFlash.text = "${flashSale.discount}% off"
             Glide.with(binding.root)
                 .load(flashSale.image_url)
-                .centerCrop()
-                .transform(RoundedCorners(9))
-                .override(174,221)
                 .into(binding.ivPhotoFlash)
         }
     }
