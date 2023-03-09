@@ -19,30 +19,24 @@
         android:name="ru.stas.testtask.LoginFragment"
         android:label="fragment_login"
         tools:layout="@layout/fragment_login" >
-        <action
-            android:id="@+id/action_loginFragment_to_profileFragment"
-            app:destination="@id/profileFragment" />
         <argument
             android:name="firstName"
             app:argType="string" />
+        <action
+            android:id="@+id/action_loginFragment_to_profileFragment"
+            app:destination="@id/profileFragment" />
     </fragment>
     <fragment
         android:id="@+id/profileFragment"
         android:name="ru.stas.testtask.ProfileFragment"
         android:label="fragment_profile"
         tools:layout="@layout/fragment_profile" >
-        <action
-            android:id="@+id/action_profileFragment_to_pageOneFragment"
-            app:destination="@id/pageOneFragment" />
         <argument
             android:name="firstName"
             app:argType="string" />
         <action
-            android:id="@+id/action_profileFragment_to_loginFragment"
-            app:destination="@id/loginFragment" />
-        <action
-            android:id="@+id/action_profileFragment_to_singInFragment"
-            app:destination="@id/singInFragment" />
+            android:id="@+id/action_profileFragment_to_pageOneFragment"
+            app:destination="@id/pageOneFragment" />
     </fragment>
     <fragment
         android:id="@+id/pageOneFragment"
