@@ -5,6 +5,7 @@ import android.view.MenuItem
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
+import androidx.fragment.app.Fragment
 import androidx.navigation.NavController
 import androidx.navigation.NavDestination
 import androidx.navigation.findNavController
@@ -31,6 +32,32 @@ class MainActivity : AppCompatActivity() {
         navController = navHostFragment.navController
         binding.bottomNavigation.setupWithNavController(navController)
 
+        val bottomNavigation = binding.bottomNavigation
+        bottomNavigation.setOnItemSelectedListener {
+            when(it.itemId){
+                R.id.singInFragment -> {
+                    loadFragment(SingInFragment())
+                    true
+                }
+                R.id.pageTwoFragment -> {
+                    loadFragment(PageTwoFragment())
+                    true
+                }
+                R.id.pageOneFragment -> {
+                    loadFragment(PageOneFragment())
+                    true
+                }
+                R.id.loginFragment -> {
+                    loadFragment(LoginFragment())
+                    true
+                }
+                R.id.profileFragment -> {
+                    loadFragment(ProfileFragment())
+                    true
+                }
+                else -> false
+            }
+        }
         navController.addOnDestinationChangedListener { _, nd: NavDestination, _ ->
             if (nd.id == R.id.pageTwoFragment || nd.id == R.id.pageOneFragment || nd.id == R.id.profileFragment) {
                 binding.bottomNavigation.visibility = View.VISIBLE
@@ -40,7 +67,9 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        return item.onNavDestinationSelected(findNavController(R.id.nav_host_fragment_container)) || super.onOptionsItemSelected(item)
+    private  fun loadFragment(fragment: Fragment){
+        val transaction = supportFragmentManager.beginTransaction()
+        transaction.replace(R.id.nav_host_fragment_container,fragment)
+        transaction.commit()
     }
 }

@@ -25,11 +25,15 @@ class ProfileFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         _binding = FragmentProfileBinding.inflate(inflater,container,false)
-        logOut()
         goToStore()
         return binding.root
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        logOut()
+
+    }
     override fun onDestroy() {
         super.onDestroy()
         _binding = null
@@ -48,5 +52,6 @@ class ProfileFragment : Fragment() {
             findNavController().navigate(R.id.singInFragment)
         }
     }
+
 
 }
